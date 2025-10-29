@@ -1,19 +1,35 @@
 const sounds = ['applause', 'boo', 'gasp', 'tada', 'victory', 'wrong'];
 
-document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('click', () => {
+const buttonsContainer = document.getElementById("buttons");
+
+// ✅ Create buttons and audio elements together
+sounds.forEach(sound => {
+  const btn = document.createElement("button");
+  btn.classList.add("btn");
+  btn.innerText = sound;
+
+  const audio = document.createElement("audio");
+  audio.id = sound;
+  audio.src = `sounds/${sound}.mp3`;
+
+  document.body.appendChild(audio);
+  buttonsContainer.appendChild(btn);
+
+  btn.addEventListener("click", () => {
     stopAllSounds();
-    const sound = btn.getAttribute('data-sound');
-    document.getElementById(sound).play();
+    audio.play();
   });
 });
 
-document.querySelector('.stop').addEventListener('click', stopAllSounds);
+// ✅ Stop button always exists in HTML
+document.querySelector(".stop").addEventListener("click", stopAllSounds);
 
 function stopAllSounds() {
   sounds.forEach(sound => {
     const audio = document.getElementById(sound);
-    audio.pause();
-    audio.currentTime = 0;
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
   });
 }
