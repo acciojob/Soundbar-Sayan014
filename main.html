@@ -8,21 +8,21 @@
 
 <body>
 	<!-- the entire body must be written by student -->
-	  <section id="buttons">
-    <button class="btn">applause</button>
-    <button class="btn">boo</button>
-    <button class="btn">gasp</button>
-    <button class="btn">tada</button>
-    <button class="btn">victory</button>
-    <button class="btn">wrong</button>
+ <h1>Soundbar</h1>
+
+  <div id="buttons">
+    <button class="btn" data-sound="applause.mp3">applause</button>
+    <button class="btn" data-sound="boo.mp3">boo</button>
+    <button class="btn" data-sound="gasp.mp3">gasp</button>
+    <button class="btn" data-sound="tada.mp3">tada</button>
+    <button class="btn" data-sound="victory.mp3">victory</button>
+    <button class="btn" data-sound="wrong.mp3">wrong</button>
     <button class="stop">stop</button>
-  </section>
-	<audio id="applause" src="sounds/applause.mp3"></audio>
-<audio id="boo" src="sounds/boo.mp3"></audio>
-<audio id="gasp" src="sounds/gasp.mp3"></audio>
-<audio id="tada" src="sounds/tada.mp3"></audio>
-<audio id="victory" src="sounds/victory.mp3"></audio>
-<audio id="wrong" src="sounds/wrong.mp3"></audio>
+  </div>
+
+  <!-- Container for audio elements -->
+  <div id="audio-container" style="display: none;"></div>
+
     <script type="text/javascript" src="./script.js">
 </script>
 
